@@ -1,0 +1,23 @@
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=rungetty
+pkgver=1.2
+_pkgver=.orig
+pkgrel=15
+pkgdesc="rungetty takes command of a virtual console and runs any program on it."
+arch=('x86_64')
+url="http://linux.maruhn.com/sec/rungetty.html"
+license=('GPL')
+depends=(glibc)
+makedepends=(glibc)
+source=(ftp://ftp.gnome.org/mirror/ubuntu/pool/universe/r/rungetty/${pkgname}_${pkgver}${_pkgver}.tar.gz)
+md5sums=('acca2a8a6a06b1474e199c30cf556b9c')
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver$_pkgver"
+  make
+}
+
+package() {
+    cd "$srcdir/$pkgname-$pkgver$_pkgver"
+    make ROOT="$pkgdir/" DESTDIR="$pkgdir/" install
+}
