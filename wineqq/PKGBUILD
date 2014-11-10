@@ -1,0 +1,25 @@
+# Maintainer: Aetf <7437103@gmail.com>
+pkgname=wineqq
+pkgver=20141109
+pkgrel=1
+pkgdesc='wine version of QQ 6.4, made by Dengtk. A modified version of wineqq 2013 made by Longene Team.'
+arch=('i686' 'x86_64')
+url='http://tieba.baidu.com/p/3330745271'
+license=('Other')
+source=("WineQQ_6.4_20141004.tar.gz")
+md5sums=('4501eaaeecfaaa62ee64a05307c01f89')
+
+if [ "$CARCH" = "i686" ]; then
+  depends=('gtk2' 'lcms' 'ncurses' 'alsa-plugins' 'libsm' 'libpng12')
+elif [ "$CARCH" = "x86_64" ]; then
+  depends=('lib32-gtk2' 'lib32-lcms' 'lib32-ncurses' 'lib32-alsa-plugins' 'lib32-libsm' 'lib32-libpng12')
+fi
+
+PKGEXT=".pkg.tar"
+
+package()
+{
+    tar xzvf ${srcdir}/WineQQ_6.4_20141004.tar.gz -C ${pkgdir}/
+	mkdir -p ${pkgdir}/usr/share/doc/wineqq
+	mv ${pkgdir}/Readme ${pkgdir}/usr/share/doc/wineqq/Readme
+}
