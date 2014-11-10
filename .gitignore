@@ -1,0 +1,8 @@
+# Ignore downloaded source files
+*.tar.gz
+
+# Ignore packages
+*.pkg.tar.xz
+
+# Ignore all subdirs within any package dir
+*/*/*
