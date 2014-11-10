@@ -1,0 +1,31 @@
+# Maintainer: Aetf <7437103@gmail.com>
+pkgname=kmscon-patched
+pkgver=8
+pkgrel=3
+pkgdesc='Terminal emulator based on Kernel Mode Setting (KMS) with several patches'
+arch=(i686 x86_64)
+url='http://www.freedesktop.org/wiki/Software/kmscon/'
+license=('MIT')
+depends=(systemd libdrm mesa libgl pango libxkbcommon xkeyboard-config libtsm)
+makedepends=(libxslt docbook-xsl linux-api-headers)
+source=(http://www.freedesktop.org/software/kmscon/releases/kmscon-${pkgver}.tar.xz
+		add-underline.patch
+		fix-margin-color.patch)
+md5sums=('90d39c4ef53a11c53f27be4a7e9acee4'
+'SKIP' 'SKIP')
+
+build() {
+  cd $pkgname-$pkgver
+  patch -p1 -i ../add-underline.patch
+  patch -p1 -i ../fix-margin-color.patch
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd $pkgname-$pkgver
+  make DESTDIR="$pkgdir/" install
+  mkdir -p "$pkgdir/usr/share/licenses/$pkgname" "$pkgdir/usr/lib/systemd/system"
+  cp COPYING "$pkgdir/usr/share/licenses/$pkgname/"
+  cp docs/kmscon{,vt@}.service "$pkgdir/usr/lib/systemd/system/"
+}
