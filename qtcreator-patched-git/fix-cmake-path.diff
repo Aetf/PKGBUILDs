@@ -1,0 +1,59 @@
+diff --git a/src/plugins/cmakeprojectmanager/cmakeproject.cpp b/src/plugins/cmakeprojectmanager/cmakeproject.cpp
+index b1d7db6..c309d51 100644
+--- a/src/plugins/cmakeprojectmanager/cmakeproject.cpp
++++ b/src/plugins/cmakeprojectmanager/cmakeproject.cpp
+@@ -63,6 +63,7 @@
+ #include <coreplugin/infobar.h>
+ #include <coreplugin/editormanager/editormanager.h>
+ 
++#include <algorithm>
+ #include <QDebug>
+ #include <QDir>
+ #include <QFormLayout>
+@@ -408,7 +409,11 @@ void CMakeProject::buildTree(CMakeProjectNode *rootNode, QList<ProjectExplorer::
+ 
+     // add added nodes
+     foreach (ProjectExplorer::FileNode *fn, added) {
+-//        qDebug()<<"added"<<fn->path();
++        // skip files not in project root directory
++        if (!isInDirectory(QFileInfo(rootNode->path()).path(), fn->path())) {
++            continue;
++        }
++        qDebug()<<"added"<<fn->path();
+         // Get relative path to rootNode
+         QString parentDir = QFileInfo(fn->path()).absolutePath();
+         ProjectExplorer::FolderNode *folder = findOrCreateFolder(rootNode, parentDir);
+@@ -431,6 +436,21 @@ void CMakeProject::buildTree(CMakeProjectNode *rootNode, QList<ProjectExplorer::
+     }
+ }
+ 
++bool CMakeProject::isInDirectory(const QString &directory, const QString &path)
++{
++    std::string absDir = QDir(directory).canonicalPath().toStdString();
++    std::string absPath = QFileInfo(path).canonicalFilePath().toStdString();
++
++    qDebug() << "checking if"<<absPath.c_str()<<"in"<<absDir.c_str();
++
++    // add suffix '/' to avoid /var/log and /var/log2/abc things
++    absDir += QDir::separator().toLatin1();
++
++    auto p = std::mismatch(absDir.begin(), absDir.end(),
++                           absPath.begin());
++    return p.first == absDir.end();
++}
++
+ ProjectExplorer::FolderNode *CMakeProject::findOrCreateFolder(CMakeProjectNode *rootNode, QString directory)
+ {
+     QString relativePath = QDir(QFileInfo(rootNode->path()).path()).relativeFilePath(directory);
+diff --git a/src/plugins/cmakeprojectmanager/cmakeproject.h b/src/plugins/cmakeprojectmanager/cmakeproject.h
+index d380a1c..4de2e7c 100644
+--- a/src/plugins/cmakeprojectmanager/cmakeproject.h
++++ b/src/plugins/cmakeprojectmanager/cmakeproject.h
+@@ -134,6 +134,7 @@ private:
+     void buildTree(CMakeProjectNode *rootNode, QList<ProjectExplorer::FileNode *> list);
+     void gatherFileNodes(ProjectExplorer::FolderNode *parent, QList<ProjectExplorer::FileNode *> &list);
+     ProjectExplorer::FolderNode *findOrCreateFolder(CMakeProjectNode *rootNode, QString directory);
++    bool isInDirectory(const QString &directory, const QString &path);
+     void createUiCodeModelSupport();
+     QString uiHeaderFile(const QString &uiFile);
+     void updateRunConfigurations(ProjectExplorer::Target *t);
