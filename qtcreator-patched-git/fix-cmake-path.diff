@@ -19,7 +19,7 @@ index b1d7db6..c309d51 100644
 +        if (!isInDirectory(QFileInfo(rootNode->path()).path(), fn->path())) {
 +            continue;
 +        }
-+        qDebug()<<"added"<<fn->path();
++        //qDebug()<<"added"<<fn->path();
          // Get relative path to rootNode
          QString parentDir = QFileInfo(fn->path()).absolutePath();
          ProjectExplorer::FolderNode *folder = findOrCreateFolder(rootNode, parentDir);
@@ -32,7 +32,7 @@ index b1d7db6..c309d51 100644
 +    std::string absDir = QDir(directory).canonicalPath().toStdString();
 +    std::string absPath = QFileInfo(path).canonicalFilePath().toStdString();
 +
-+    qDebug() << "checking if"<<absPath.c_str()<<"in"<<absDir.c_str();
++    //qDebug() << "checking if"<<absPath.c_str()<<"in"<<absDir.c_str();
 +
 +    // add suffix '/' to avoid /var/log and /var/log2/abc things
 +    absDir += QDir::separator().toLatin1();
