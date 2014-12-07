@@ -1,0 +1,39 @@
+# Maintainer: Aetf <7437103@gmail.com>
+pkgname=qbencode-git
+_gitname=QBencode
+pkgver=1.0.0.r0.gf102127
+pkgrel=2
+pkgdesc="Bencode read/write support for Qt"
+arch=('i686' 'x86_64')
+url="https://github.com/Aetf/$_gitname"
+license=('MIT')
+depends=(qt5-base)
+makedepends=('cmake')
+provides=('qbencode')
+options=(!libtool staticlibs)
+source=("git+https://github.com/Aetf/$_gitname.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_gitname"
+  git describe --tags --long | sed -r "s/^v//;s/([^-]*-g)/r\\1/;s/-/./g"
+}
+
+build() {
+  cd "$srcdir/$_gitname"
+
+  mkdir build
+  cd build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ..
+  make
+}
+
+package() {
+  cd "$srcdir/$_gitname/build"
+  make DESTDIR="$pkgdir/" install
+  install -d "$pkgdir/usr/share/licenses/QBencode"
+  install -m644 "$pkgdir/usr/share/licenses/LICENSE" "$pkgdir/usr/share/licenses/QBencode/LICENSE"
+  rm "$pkgdir/usr/share/licenses/LICENSE"
+}
+
+# vim:set ts=2 sw=2 et:
