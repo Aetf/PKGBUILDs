@@ -1,5 +1,5 @@
 diff --git a/src/plugins/cmakeprojectmanager/cmakeproject.cpp b/src/plugins/cmakeprojectmanager/cmakeproject.cpp
-index b1d7db6..c309d51 100644
+index 0dcf8dd..15185da 100644
 --- a/src/plugins/cmakeprojectmanager/cmakeproject.cpp
 +++ b/src/plugins/cmakeprojectmanager/cmakeproject.cpp
 @@ -63,6 +63,7 @@
@@ -10,7 +10,7 @@ index b1d7db6..c309d51 100644
  #include <QDebug>
  #include <QDir>
  #include <QFormLayout>
-@@ -408,7 +409,11 @@ void CMakeProject::buildTree(CMakeProjectNode *rootNode, QList<ProjectExplorer::
+@@ -406,7 +407,11 @@ void CMakeProject::buildTree(CMakeProjectNode *rootNode, QList<ProjectExplorer::
  
      // add added nodes
      foreach (ProjectExplorer::FileNode *fn, added) {
@@ -23,7 +23,7 @@ index b1d7db6..c309d51 100644
          // Get relative path to rootNode
          QString parentDir = QFileInfo(fn->path()).absolutePath();
          ProjectExplorer::FolderNode *folder = findOrCreateFolder(rootNode, parentDir);
-@@ -431,6 +436,21 @@ void CMakeProject::buildTree(CMakeProjectNode *rootNode, QList<ProjectExplorer::
+@@ -429,6 +434,21 @@ void CMakeProject::buildTree(CMakeProjectNode *rootNode, QList<ProjectExplorer::
      }
  }
  
