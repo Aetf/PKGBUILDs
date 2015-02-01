@@ -20,6 +20,6 @@ PKGEXT=".pkg.tar"
 package()
 {
     tar xzvf ${srcdir}/WineQQ_6.4_20141004.tar.gz -C ${pkgdir}/
-	mkdir -p ${pkgdir}/usr/share/doc/wineqq
-	mv ${pkgdir}/Readme ${pkgdir}/usr/share/doc/wineqq/Readme
+    mkdir -p ${pkgdir}/usr/share/doc/wineqq
+    mv ${pkgdir}/Readme ${pkgdir}/usr/share/doc/wineqq/Readme
 }
