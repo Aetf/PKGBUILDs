@@ -1,0 +1,36 @@
+diff --git a/src/qtlibtorrent/qbtsession.cpp b/src/qtlibtorrent/qbtsession.cpp
+index cd46234..75d031e 100755
+--- a/src/qtlibtorrent/qbtsession.cpp
++++ b/src/qtlibtorrent/qbtsession.cpp
+@@ -126,11 +126,16 @@ QBtSession::QBtSession()
+   Preferences* const pref = Preferences::instance();
+   // Creating Bittorrent session
+   QList<int> version;
+-  version << VERSION_MAJOR;
+-  version << VERSION_MINOR;
+-  version << VERSION_BUGFIX;
+-  version << VERSION_BUILD;
+-  const QString peer_id = "qB";
++  //version << VERSION_MAJOR;
++  //version << VERSION_MINOR;
++  //version << VERSION_BUGFIX;
++  //version << VERSION_BUILD;
++  version << 3;
++  version << 3;
++  version << 0;
++  version << 0;
++  //const QString peer_id = "qB";
++  const QString peer_id = "UT";
+   // Construct session
+   s = new session(fingerprint(peer_id.toLocal8Bit().constData(), version.at(0), version.at(1), version.at(2), version.at(3)), 0);
+   //std::cout << "Peer ID: " << fingerprint(peer_id.toLocal8Bit().constData(), version.at(0), version.at(1), version.at(2), version.at(3)).to_string() << std::endl;
+@@ -421,7 +426,8 @@ void QBtSession::configureSession() {
+   }
+   // * Session settings
+   session_settings sessionSettings = s->settings();
+-  sessionSettings.user_agent = "qBittorrent " VERSION;
++  //sessionSettings.user_agent = "qBittorrent " VERSION;
++  sessionSettings.user_agent = "uTorrent/3300(29677)";
+   //std::cout << "HTTP user agent is " << sessionSettings.user_agent << std::endl;
+   logger->addMessage(tr("HTTP user agent is %1").arg(misc::toQString(sessionSettings.user_agent)));
+ 
