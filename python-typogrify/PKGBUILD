@@ -1,4 +1,5 @@
 # Maintainer: Aetf <aetf at unlimitedcodeworks dot xyz>
+# Contributor: Leryan <florent at peterschmitt dot fr>
 pkgname=python-typogrify
 _pkgname=typogrify
 pkgver=2.0.7
