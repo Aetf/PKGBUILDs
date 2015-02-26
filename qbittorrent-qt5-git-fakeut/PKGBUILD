@@ -4,26 +4,25 @@
 # Contributor: Ner0
 
 pkgname=qbittorrent-qt5-git
-pkgver=3.2.0.5635
-pkgrel=1
+pkgver=3.2.0.5647
+pkgrel=2
 pkgdesc="A bittorrent client written in C++ / Qt5 using the good libtorrent library"
 arch=('i686' 'x86_64')
 url="http://www.qbittorrent.org/"
 license=('GPL')
 depends=('qt5-base' 'libtorrent-rasterbar')
-makedepends=('boost' 'which')
+makedepends=('boost')
 optdepends=('python: needed for search')
 conflicts=('qbittorrent')
 provides=('qbittorrent')
 install=qbittorrent.install
-#source=('git://github.com/qbittorrent/qBittorrent.git'
-source=('git+file:///home/aetf/Develop/Git/qBittorrent'
+source=('git://github.com/qbittorrent/qBittorrent.git'
         'fake-ut-peerid-and-ua.patch'
         'workaround-negative-ratio.patch'
         )
 md5sums=('SKIP'
-         '075bced15412c23e9740a10b6c149b6a'
-         '7791f2886482cb62b52d8a04fff60841'
+         '40c7546ecf25ca025fe86a0ab1d8f530'
+         'ae9557eb5f73793eb853ed81638d6df4'
          )
 options=(debug)
 
@@ -44,8 +43,6 @@ prepare() {
     msg2 "Patching fake-ut-peerid-and-ua.patch"
     patch -p1 < ../fake-ut-peerid-and-ua.patch
   fi
-  msg2 "Patching workaround-negative-ratio.patch"
-  patch -p1 < ../workaround-negative-ratio.patch
 }
 
 build() {
