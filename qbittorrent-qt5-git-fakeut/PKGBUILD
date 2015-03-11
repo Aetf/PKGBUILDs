@@ -4,8 +4,8 @@
 # Contributor: Ner0
 
 pkgname=qbittorrent-qt5-git
-pkgver=3.2.0.5647
-pkgrel=2
+pkgver=3.2.0.5665
+pkgrel=1
 pkgdesc="A bittorrent client written in C++ / Qt5 using the good libtorrent library"
 arch=('i686' 'x86_64')
 url="http://www.qbittorrent.org/"
@@ -16,13 +16,12 @@ optdepends=('python: needed for search')
 conflicts=('qbittorrent')
 provides=('qbittorrent')
 install=qbittorrent.install
-source=('git://github.com/qbittorrent/qBittorrent.git'
+#source=('git://github.com/qbittorrent/qBittorrent.git'
+source=('git+file:///home/aetf/Develop/Git/qBittorrent'
         'fake-ut-peerid-and-ua.patch'
-        'workaround-negative-ratio.patch'
         )
 md5sums=('SKIP'
          '40c7546ecf25ca025fe86a0ab1d8f530'
-         'ae9557eb5f73793eb853ed81638d6df4'
          )
 options=(debug)
 
