@@ -1,0 +1,51 @@
+# Maintainer: Aetf
+
+pkgname=openann-git
+_gitname=OpenANN
+pkgver=3.2.0.5728
+pkgrel=1
+pkgdesc="An open source library for artificial neural networks. Git version"
+arch=('i686' 'x86_64')
+url="https://github.com/OpenANN/OpenANN"
+license=('GPL3')
+depends=('alglib')
+makedepends=('eigen' 'unzip' 'wget' 'git' 'cmake>=2.8' 'doxygen' 'graphviz')
+conflicts=('openann')
+provides=('openann')
+#install=qbittorrent.install
+source=('git://github.com/OpenANN/OpenANN.git'
+        'use-system-alglib.patch'
+        )
+md5sums=('SKIP'
+         'e89c10c3b3fd95b30a872accc0b8c9b1'
+         )
+
+pkgver() {
+  cd $_gitname
+  git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd $_gitname
+  patch -p1 -i ../use-system-alglib.patch
+  mkdir build
+
+  cd lib
+  sh setup.sh CMA-ESpp
+}
+
+build() {
+  cd $_gitname/build
+
+  cmake -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX="/usr" \
+        -DALWAYS_BUILD_DOCUMENTATION=ON \
+        -DBUILD_PYTHON=OFF \
+        ..
+  make
+}
+
+package() {
+  cd $_gitname/build
+  make DESTDIR="$pkgdir/" install
+}
