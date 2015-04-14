@@ -9,7 +9,7 @@ index 4c29924..eab2481 100644
 -add_subdirectory(lib)
  
 -include_directories(. ${EIGEN3_INCLUDE_DIRS} lib/CMA-ESpp lib/ALGLIB test/lib/CPP-Test)
-+include_directories(. ${EIGEN3_INCLUDE_DIRS} lib/CMA-ESpp /usr/include/libalglib test/lib/CPP-Test)
++include_directories(. ${EIGEN3_INCLUDE_DIRS} lib/CMA-ESpp ${CMAKE_INSTALL_PREFIX}/include/libalglib test/lib/CPP-Test)
  add_subdirectory(src)
  option(EXCLUDE_TESTS_FROM_ALL "Exclude examples, benchmarks and test suite from standard target." ON)
  if(EXCLUDE_TESTS_FROM_ALL)
