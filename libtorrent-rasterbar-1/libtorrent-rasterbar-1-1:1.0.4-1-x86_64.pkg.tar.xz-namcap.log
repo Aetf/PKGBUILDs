@@ -1,0 +1,3 @@
+libtorrent-rasterbar-1 E: Missing custom license directory (usr/share/licenses/libtorrent-rasterbar-1)
+libtorrent-rasterbar-1 W: Dependency python2 detected but optional (libraries ['usr/lib/libpython2.7.so.1.0'] needed in files ['usr/lib/python2.7/site-packages/libtorrent.so'])
+libtorrent-rasterbar-1 W: Dependency python detected but optional (libraries ['usr/lib/libpython3.4m.so.1.0'] needed in files ['usr/lib/python3.4/site-packages/libtorrent.cpython-34m.so'])

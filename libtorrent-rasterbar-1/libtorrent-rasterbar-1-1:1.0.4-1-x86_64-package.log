@@ -1,0 +1,97 @@
+Making install in include/libtorrent
+make[1]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/include/libtorrent'
+make[2]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/include/libtorrent'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent'
+ /usr/bin/install -c -m 644  address.hpp add_torrent_params.hpp alert.hpp alert_manager.hpp alert_dispatcher.hpp alert_types.hpp alloca.hpp allocator.hpp assert.hpp bandwidth_limit.hpp bandwidth_manager.hpp bandwidth_socket.hpp bandwidth_queue_entry.hpp bencode.hpp bitfield.hpp bloom_filter.hpp broadcast_socket.hpp bt_peer_connection.hpp buffer.hpp build_config.hpp chained_buffer.hpp config.hpp connection_queue.hpp ConvertUTF.h copy_ptr.hpp create_torrent.hpp deadline_timer.hpp debug.hpp disk_buffer_holder.hpp disk_buffer_pool.hpp disk_io_thread.hpp ed25519.hpp entry.hpp enum_net.hpp error.hpp error_code.hpp escape_string.hpp export.hpp extensions.hpp file.hpp '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/.'
+ /usr/bin/install -c -m 644  file_pool.hpp file_storage.hpp fingerprint.hpp gzip.hpp hasher.hpp http_connection.hpp http_parser.hpp http_seed_connection.hpp http_stream.hpp http_tracker_connection.hpp i2p_stream.hpp identify_client.hpp instantiate_connection.hpp intrusive_ptr_base.hpp invariant_check.hpp io.hpp io_service.hpp io_service_fwd.hpp ip_filter.hpp ip_voter.hpp lazy_entry.hpp lsd.hpp magnet_uri.hpp max.hpp natpmp.hpp packet_buffer.hpp parse_url.hpp pe_crypto.hpp peer_connection.hpp peer.hpp peer_id.hpp peer_info.hpp peer_request.hpp piece_block_progress.hpp piece_picker.hpp policy.hpp proxy_base.hpp ptime.hpp puff.hpp random.hpp '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/.'
+ /usr/bin/mkdir -p '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/kademlia'
+ /usr/bin/install -c -m 644  kademlia/dht_tracker.hpp kademlia/dht_observer.hpp kademlia/find_data.hpp kademlia/logging.hpp kademlia/msg.hpp kademlia/node.hpp kademlia/node_entry.hpp kademlia/node_id.hpp kademlia/observer.hpp kademlia/refresh.hpp kademlia/routing_table.hpp kademlia/rpc_manager.hpp kademlia/traversal_algorithm.hpp kademlia/item.hpp kademlia/get_item.hpp kademlia/get_peers.hpp '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/kademlia'
+ /usr/bin/install -c -m 644  rss.hpp session.hpp session_settings.hpp session_status.hpp settings.hpp sha1_hash.hpp size_type.hpp sliding_average.hpp socket.hpp socket_io.hpp socket_type.hpp socket_type_fwd.hpp socks5_stream.hpp ssl_stream.hpp stat.hpp storage.hpp storage_defs.hpp string_util.hpp thread.hpp time.hpp timestamp_history.hpp torrent_handle.hpp torrent.hpp torrent_info.hpp tracker_manager.hpp udp_socket.hpp udp_tracker_connection.hpp union_endpoint.hpp upnp.hpp utp_socket_manager.hpp utp_stream.hpp utf8.hpp version.hpp web_connection_base.hpp web_peer_connection.hpp xml_parse.hpp tommath.h tommath_class.h tommath_superclass.h '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/.'
+ /usr/bin/mkdir -p '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/aux_'
+ /usr/bin/install -c -m 644  aux_/session_impl.hpp '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/aux_'
+ /usr/bin/mkdir -p '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/extensions'
+ /usr/bin/install -c -m 644  extensions/logger.hpp extensions/lt_trackers.hpp extensions/metadata_transfer.hpp extensions/smart_ban.hpp extensions/ut_metadata.hpp extensions/ut_pex.hpp '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/include/libtorrent/extensions'
+make[2]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/include/libtorrent'
+make[1]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/include/libtorrent'
+Making install in src
+make[1]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/src'
+make[2]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/src'
+make[2]: Nothing to be done for 'install-data-am'.
+ /usr/bin/mkdir -p '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libtorrent-rasterbar.la '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib'
+libtool: install: /usr/bin/install -c .libs/libtorrent-rasterbar.so.8.0.0 /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/libtorrent-rasterbar.so.8.0.0
+libtool: install: (cd /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib && { ln -s -f libtorrent-rasterbar.so.8.0.0 libtorrent-rasterbar.so.8 || { rm -f libtorrent-rasterbar.so.8 && ln -s libtorrent-rasterbar.so.8.0.0 libtorrent-rasterbar.so.8; }; })
+libtool: install: (cd /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib && { ln -s -f libtorrent-rasterbar.so.8.0.0 libtorrent-rasterbar.so || { rm -f libtorrent-rasterbar.so && ln -s libtorrent-rasterbar.so.8.0.0 libtorrent-rasterbar.so; }; })
+libtool: install: /usr/bin/install -c .libs/libtorrent-rasterbar.lai /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/libtorrent-rasterbar.la
+libtool: install: /usr/bin/install -c .libs/libtorrent-rasterbar.a /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/libtorrent-rasterbar.a
+libtool: install: chmod 644 /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/libtorrent-rasterbar.a
+libtool: install: ranlib /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/libtorrent-rasterbar.a
+libtool: warning: remember to run 'libtool --finish /usr/lib'
+make[2]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/src'
+make[1]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/src'
+Making install in examples
+make[1]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/examples'
+make[2]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/examples'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/examples'
+make[1]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/examples'
+Making install in test
+make[1]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/test'
+make[2]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/test'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/test'
+make[1]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/test'
+Making install in bindings
+make[1]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings'
+Making install in python
+make[2]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings/python'
+/usr/bin/python setup.py build
+running build
+running build_ext
+make[3]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings/python'
+/usr/bin/python setup.py install --prefix=/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr
+make[3]: Nothing to be done for 'install-data-am'.
+running install
+running build
+running build_ext
+running install_lib
+creating /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/python3.4
+creating /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/python3.4/site-packages
+copying build/lib.linux-x86_64-3.4/libtorrent.cpython-34m.so -> /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/python3.4/site-packages
+running install_egg_info
+Writing /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/python3.4/site-packages/python_libtorrent-1.0.4-py3.4.egg-info
+make[3]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings/python'
+make[2]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings/python'
+make[2]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings'
+make[3]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings'
+make[2]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings'
+make[1]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/bindings'
+Making install in tools
+make[1]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/tools'
+make[2]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/tools'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/tools'
+make[1]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4/tools'
+make[1]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4'
+make[2]: Entering directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libtorrent-rasterbar.pc '/build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/pkgconfig'
+make[2]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4'
+make[1]: Leaving directory '/build/libtorrent-rasterbar-1/src/libtorrent-rasterbar-1.0.4'
+running build
+running build_ext
+running install
+running build
+running build_ext
+running install_lib
+creating /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/python2.7
+creating /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/python2.7/site-packages
+copying build/lib.linux-x86_64-2.7/libtorrent.so -> /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/python2.7/site-packages
+running install_egg_info
+Writing /build/libtorrent-rasterbar-1/pkg/libtorrent-rasterbar-1/usr/lib/python2.7/site-packages/python_libtorrent-1.0.4-py2.7.egg-info
