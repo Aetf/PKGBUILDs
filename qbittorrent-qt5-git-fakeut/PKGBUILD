@@ -4,14 +4,14 @@
 # Contributor: Ner0
 
 pkgname=qbittorrent-qt5-git
-pkgver=3.2.0.5728
+pkgver=3.2.0.5765
 pkgrel=1
 pkgdesc="A bittorrent client written in C++ / Qt5 using the good libtorrent library"
 arch=('i686' 'x86_64')
 url="http://www.qbittorrent.org/"
 license=('GPL')
-depends=('qt5-base' 'libtorrent-rasterbar')
-makedepends=('boost')
+depends=('qt5-base' 'libtorrent-rasterbar-1')
+makedepends=('git' 'boost')
 optdepends=('python: needed for search')
 conflicts=('qbittorrent')
 provides=('qbittorrent')
@@ -46,7 +46,6 @@ prepare() {
 build() {
   cd qBittorrent
   ./configure --prefix=/usr \
-              --with-libtorrent-rasterbar0.16 \
               --enable-debug
   make
 }
