@@ -4,13 +4,13 @@
 # Contributor: Ner0
 
 pkgname=qbittorrent-qt5-git
-pkgver=3.2.0.5765
-pkgrel=1
+pkgver=3.3.0.5787
+pkgrel=2
 pkgdesc="A bittorrent client written in C++ / Qt5 using the good libtorrent library"
 arch=('i686' 'x86_64')
 url="http://www.qbittorrent.org/"
 license=('GPL')
-depends=('qt5-base' 'libtorrent-rasterbar-1')
+depends=('qt5-base' 'libtorrent-rasterbar>=1.0.0')
 makedepends=('git' 'boost')
 optdepends=('python: needed for search')
 conflicts=('qbittorrent')
@@ -18,9 +18,11 @@ provides=('qbittorrent')
 install=qbittorrent.install
 source=('git://github.com/qbittorrent/qBittorrent.git'
         'fake-ut-peerid-and-ua.patch'
+        'make-first-col-movable.patch'
         )
-md5sums=('SKIP'
-         '40c7546ecf25ca025fe86a0ab1d8f530'
+sha256sums=('SKIP'
+         'cf64f7de2be98fc6d9d91839f780fa898ab4d5336eb82f02b1d494eac4682fc5'
+         '483ae656854c55994632f048d67528af6990dd1360574785c3b2af07119ff7bc'
          )
 options=(debug)
 
@@ -38,14 +40,18 @@ prepare() {
   _utspoof='yes'
 
   if [ $_utspoof = 'yes' ]; then
-    msg2 "Patching fake-ut-peerid-and-ua.patch"
+    msg2 "Applying fake-ut-peerid-and-ua.patch"
     patch -p1 < ../fake-ut-peerid-and-ua.patch
   fi
+
+  msg2 "Applying make-first-col-movable.patch"
+  patch -p1 < ../make-first-col-movable.patch
 }
 
 build() {
   cd qBittorrent
   ./configure --prefix=/usr \
+              --with-qt5 \
               --enable-debug
   make
 }

@@ -1,0 +1,27 @@
+diff --git a/src/gui/transferlistwidget.cpp b/src/gui/transferlistwidget.cpp
+index db5fbc6..3d37e35 100644
+--- a/src/gui/transferlistwidget.cpp
++++ b/src/gui/transferlistwidget.cpp
+@@ -34,6 +34,8 @@
+ #include <QSortFilterProxyModel>
+ #include <QDesktopServices>
+ #include <QTimer>
++#include <QTableView>
++#include <QHeaderView>
+ #include <QClipboard>
+ #include <QColor>
+ #include <QUrl>
+@@ -104,6 +106,13 @@ TransferListWidget::TransferListWidget(QWidget *parent, MainWindow *main_window,
+ #endif
+     header()->setStretchLastSection(false);
+ 
++    {
++        QTableView unused;
++        unused.setVerticalHeader(header());
++        header()->setParent(this);
++        unused.setVerticalHeader(new QHeaderView(Qt::Horizontal));
++    }
++
+     // Default hidden columns
+     if (!column_loaded) {
+         setColumnHidden(TorrentModelItem::TR_PRIORITY, true);
