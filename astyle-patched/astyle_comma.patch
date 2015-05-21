@@ -1,8 +1,7 @@
-diff --git a/src/ASFormatter.cpp b/src/ASFormatter.cpp
-index 41f4732..42010d2 100755
---- a/src/ASFormatter.cpp
-+++ b/src/ASFormatter.cpp
-@@ -1412,6 +1412,11 @@ string ASFormatter::nextLine()
+diff -U 3 -dHrN -- astyle.orig/src/ASFormatter.cpp astyle/src/ASFormatter.cpp
+--- astyle.orig/src/ASFormatter.cpp	2014-12-11 22:42:25.000000000 +0800
++++ astyle/src/ASFormatter.cpp	2015-05-21 22:29:18.184543791 +0800
+@@ -1517,6 +1517,11 @@
  		if (currentChar == ';'
  		        || (currentChar == ',' && shouldPadOperators))
  		{

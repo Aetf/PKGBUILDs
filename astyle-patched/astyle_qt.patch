@@ -1,0 +1,11 @@
+diff -U 3 -dHrN -- astyle.orig/src/ASFormatter.cpp astyle/src/ASFormatter.cpp
+--- astyle.orig/src/ASFormatter.cpp	2014-12-11 22:42:25.000000000 +0800
++++ astyle/src/ASFormatter.cpp	2015-05-21 22:29:18.184543791 +0800
+@@ -2764,6 +2779,8 @@
+ 	        || isCharImmediatelyPostTemplate
+ 	        || currentHeader == &AS_CATCH
+ 	        || currentHeader == &AS_FOREACH
++                || currentHeader == &AS_FOREVER
++                || currentHeader == &AS_QFOREVER
+ 	        || currentHeader == &AS_QFOREACH)
+ 		return true;
