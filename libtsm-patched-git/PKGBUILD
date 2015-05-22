@@ -2,15 +2,15 @@
 pkgname=libtsm-patched-git
 _gitname=libtsm
 pkgver=3.r17.gb73acb4
-pkgrel=2
+pkgrel=3
 pkgdesc="Terminal-emulator State Machine"
 arch=('i686' 'x86_64')
 url="http://www.fredesktop.org/wiki/Software/kmscon/$_gitname"
 license=('MIT')
 depends=(glibc)
 makedepends=('git' 'libxkbcommon')
-provides=('libtsm')
-conflicts=('libtsm')
+provides=('libtsm-patched' 'libtsm')
+conflicts=('libtsm' 'libtsm-patched')
 options=(!libtool)
 source=('git://people.freedesktop.org/~dvdhrm/libtsm'
         'addon-underline.patch'
