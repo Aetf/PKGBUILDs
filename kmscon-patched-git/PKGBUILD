@@ -4,8 +4,8 @@
 pkgname=kmscon-patched-git
 _gitname=kmscon
 pkgver=8.r20.g0b34527
-pkgrel=2
-pkgdesc='Terminal emulator based on Kernel Mode Setting (KMS)'
+pkgrel=3
+pkgdesc='Terminal emulator based on Kernel Mode Setting (KMS), with some patch'
 arch=(i686 x86_64)
 url='http://www.freedesktop.org/wiki/Software/kmscon/'
 license=('MIT')
@@ -16,10 +16,10 @@ provides=(kmscon)
 conflicts=(kmscon)
 source=("git+https://github.com/dvdhrm/kmscon.git"
         add-underline.patch
-		fix-margin-color.patch)
+        fix-margin-color.patch)
 md5sums=('SKIP'
          'SKIP'
-		 'SKIP')
+         'SKIP')
 
 pkgver() {
   cd $srcdir/$_gitname
@@ -29,12 +29,12 @@ pkgver() {
 build() {
   cd $srcdir/$_gitname
   echo "Applying add-underline.patch"
-  patch -p1 -i ../add-underline.patch
+  patch -Np1 -i ../add-underline.patch
   echo "Applying fix-margin-color.patch"
-  patch -p1 -i ../fix-margin-color.patch
+  patch -Np1 -i ../fix-margin-color.patch
 
-  ./autogen.sh
-  CGLAGS=-DBUILD_ENABLE_DEBUG ./configure --prefix=/usr --enable-debug --disable-optimizations
+  ./autogen.sh --prefix=/usr \
+                --disable-wlterm
   make
 }
 
