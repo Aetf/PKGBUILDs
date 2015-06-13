@@ -1,0 +1,41 @@
+# $Id: PKGBUILD 207693 2014-03-13 14:27:26Z bpiotrowski $
+# Maintainer: Ionut Biru <ibiru@archlinux.org>
+
+pkgname=udisks2
+pkgver=2.1.3
+pkgrel=1
+pkgdesc="Disk Management Service, version 2"
+arch=('i686' 'x86_64')
+url="http://www.freedesktop.org/wiki/Software/udisks"
+license=('GPL2')
+depends=('glib2' 'systemd' 'polkit' 'libatasmart' 'util-linux')
+makedepends=('intltool' 'docbook-xsl' 'gobject-introspection' 'python')
+optdepends=('parted: partition management'
+            'gptfdisk: GUID partition table support'
+            'ntfs-3g: NTFS filesystem management support'
+            'dosfstools: VFAT filesystem management support')
+source=(http://udisks.freedesktop.org/releases/udisks-$pkgver.tar.bz2{,.sign}
+        git-fixes.patch)
+sha256sums=('5cc92fd651ee49a7888f90d091282b949afc629b31fdb34e187208750720632d'
+            'SKIP'
+            '52a9b9f039f9f115414715375f2b5874b79b5b67fbe2bdf3105b46d3a35f673f')
+
+prepare() {
+  cd udisks-$pkgver
+  #patch -Np1 -i ../git-fixes.patch
+}
+
+build() {
+  cd udisks-$pkgver
+  ./configure --prefix=/usr --sysconfdir=/etc \
+      --sbindir=/usr/bin \
+      --with-systemdsystemunitdir=/usr/lib/systemd/system \
+      --localstatedir=/var --disable-static
+  make
+}
+
+package() {
+  cd udisks-$pkgver
+  make DESTDIR="$pkgdir" install \
+    bash_completiondir=/usr/share/bash-completion/completions
+}
