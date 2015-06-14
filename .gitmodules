@@ -1,0 +1,3 @@
+[submodule "alglib"]
+	path = alglib
+	url = ssh://aur@aur4.archlinux.org/alglib.git
