@@ -5,5 +5,8 @@
 # Ignore packages
 *.pkg.tar.xz
 
+# Ignore log files
+*.log
+
 # Ignore all subdirs within any package dir
 */*/*
