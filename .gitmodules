@@ -13,3 +13,6 @@
 [submodule "libtsm-patched-git"]
 	path = libtsm-patched-git
 	url = ssh://aur@aur4.archlinux.org/libtsm-patched-git.git
+[submodule "python-smartypants"]
+	path = python-smartypants
+	url = ssh://aur@aur4.archlinux.org/python-smartypants.git
