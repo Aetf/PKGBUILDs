@@ -4,3 +4,6 @@
 [submodule "cutemarked-git"]
 	path = cutemarked-git
 	url = ssh://aur@aur4.archlinux.org/cutemarked-git.git
+[submodule "libtsm-git"]
+	path = libtsm-git
+	url = ssh://aur@aur4.archlinux.org/libtsm-git.git
