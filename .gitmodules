@@ -7,3 +7,6 @@
 [submodule "libtsm-git"]
 	path = libtsm-git
 	url = ssh://aur@aur4.archlinux.org/libtsm-git.git
+[submodule "openann-git"]
+	path = openann-git
+	url = ssh://aur@aur4.archlinux.org/openann-git.git
