@@ -1,3 +1,6 @@
 [submodule "alglib"]
 	path = alglib
 	url = ssh://aur@aur4.archlinux.org/alglib.git
+[submodule "cutemarked-git"]
+	path = cutemarked-git
+	url = ssh://aur@aur4.archlinux.org/cutemarked-git.git
