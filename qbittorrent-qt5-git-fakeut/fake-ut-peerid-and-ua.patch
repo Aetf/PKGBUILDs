@@ -1,33 +1,34 @@
-diff --git a/src/core/qtlibtorrent/qbtsession.cpp b/src/core/qtlibtorrent/qbtsession.cpp
-index ed66e4e..6be9325 100644
---- a/src/core/qtlibtorrent/qbtsession.cpp
-+++ b/src/core/qtlibtorrent/qbtsession.cpp
-@@ -123,11 +123,13 @@ QBtSession::QBtSession()
-     Preferences* const pref = Preferences::instance();
-     // Creating Bittorrent session
-     QList<int> version;
--    version << VERSION_MAJOR;
--    version << VERSION_MINOR;
--    version << VERSION_BUGFIX;
--    version << VERSION_BUILD;
--    const QString peer_id = "qB";
-+//    version << VERSION_MAJOR;
-+//    version << VERSION_MINOR;
-+//    version << VERSION_BUGFIX;
-+//    version << VERSION_BUILD;
-+//    const QString peer_id = "qB";
-+    version << 3 << 3 << 0 << 0;
-+    const QString peer_id = "UT";
+diff --git a/src/core/bittorrent/session.cpp b/src/core/bittorrent/session.cpp
+index d27d9e2..2c473ef 100644
+--- a/src/core/bittorrent/session.cpp
++++ b/src/core/bittorrent/session.cpp
+@@ -87,7 +87,8 @@ using namespace BitTorrent;
+ #include "torrenthandle.h"
+ #include "session.h"
+ 
+-static const char PEER_ID[] = "qB";
++//static const char PEER_ID[] = "qB";
++static const char PEER_ID[] = "UT";
+ static const char RESUME_FOLDER[] = "ResumeData";
+ static const int MAX_TRACKER_ERRORS = 2;
+ 
+@@ -161,7 +162,8 @@ Session::Session(QObject *parent)
+     // Creating BitTorrent session
+ 
      // Construct session
-     s = new session(fingerprint(peer_id.toLocal8Bit().constData(), version.at(0), version.at(1), version.at(2), version.at(3)), 0);
-     //std::cout << "Peer ID: " << fingerprint(peer_id.toLocal8Bit().constData(), version.at(0), version.at(1), version.at(2), version.at(3)).to_string() << std::endl;
-@@ -413,7 +415,8 @@ void QBtSession::configureSession() {
-     }
-     // * Session settings
-     session_settings sessionSettings = s->settings();
+-    libt::fingerprint fingerprint(PEER_ID, VERSION_MAJOR, VERSION_MINOR, VERSION_BUGFIX, VERSION_BUILD);
++    //libt::fingerprint fingerprint(PEER_ID, VERSION_MAJOR, VERSION_MINOR, VERSION_BUGFIX, VERSION_BUILD);
++    libt::fingerprint fingerprint(PEER_ID, 3, 3, 0, 0);
+     m_nativeSession = new libt::session(fingerprint, 0);
+     Logger::instance()->addMessage(tr("Peer ID: ") + Utils::String::fromStdString(fingerprint.to_string()));
+ 
+@@ -362,7 +364,8 @@ void Session::setSessionSettings()
+     Logger* const logger = Logger::instance();
+ 
+     libt::session_settings sessionSettings = m_nativeSession->settings();
 -    sessionSettings.user_agent = "qBittorrent " VERSION;
-+//    sessionSettings.user_agent = "qBittorrent " VERSION;
-+    sessionSettings.user_agent = "uTorrent/3300(29677)";
-     //std::cout << "HTTP user agent is " << sessionSettings.user_agent << std::endl;
-     logger->addMessage(tr("HTTP user agent is %1").arg(misc::toQString(sessionSettings.user_agent)));
++    //sessionSettings.user_agent = "qBittorrent " VERSION;
++    sessionSettings.user_agent = "uTorrent/3300(29667)";
+     //std::cout << "HTTP User-Agent is " << sessionSettings.user_agent << std::endl;
+     logger->addMessage(tr("HTTP User-Agent is %1").arg(Utils::String::fromStdString(sessionSettings.user_agent)));
  

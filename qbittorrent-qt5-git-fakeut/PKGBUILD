@@ -4,14 +4,14 @@
 # Contributor: Ner0
 
 pkgname=qbittorrent-qt5-git
-pkgver=3.3.0.5787
-pkgrel=2
+pkgver=0.0.0
+pkgrel=3
 pkgdesc="A bittorrent client written in C++ / Qt5 using the good libtorrent library"
 arch=('i686' 'x86_64')
 url="http://www.qbittorrent.org/"
 license=('GPL')
-depends=('qt5-base' 'libtorrent-rasterbar>=1.0.0')
-makedepends=('git' 'boost')
+depends=('qt5-base' 'libtorrent-rasterbar>=1.0.0' 'hicolor-icon-theme' 'desktop-file-utils')
+makedepends=('git' 'boost' 'qt5-tools')
 optdepends=('python: needed for search')
 conflicts=('qbittorrent')
 provides=('qbittorrent')
@@ -21,31 +21,41 @@ source=('git://github.com/qbittorrent/qBittorrent.git'
         'make-first-col-movable.patch'
         )
 sha256sums=('SKIP'
-         'cf64f7de2be98fc6d9d91839f780fa898ab4d5336eb82f02b1d494eac4682fc5'
-         '483ae656854c55994632f048d67528af6990dd1360574785c3b2af07119ff7bc'
+         '4566117501bde988ecd04ac0fef796862c04b691b1ed85674020d1690946a98e'
+         '4339d8f8e6f2c7d45e5dc681129599891b123d619b2085a8e314eadb48d5e5c4'
          )
 options=(debug)
 
 pkgver() {
-  cd qBittorrent
-  #echo $(cat version.pri | grep -o '[0-9]..*[0-9]').$(git rev-list --count master)
-  awk '/^VER_MAJOR/{X=$NF}/^VER_MINOR/{Y=$NF}/^VER_BUGFIX/{Z=$NF}END{printf "%d.%d.%d.",X, Y, Z}'\
-	  version.pri
-  git rev-list --count master
+    cd qBittorrent
+    #echo $(cat version.pri | grep -o '[0-9]..*[0-9]').$(git rev-list --count master)
+    awk '/^VER_MAJOR/{X=$NF}/^VER_MINOR/{Y=$NF}/^VER_BUGFIX/{Z=$NF}END{printf "%d.%d.%d.",X, Y, Z}'\
+        version.pri
+    git rev-list --count master
 }
 
 prepare() {
-  cd qBittorrent
-# Spoof uTorrent [ change to 'no' to disable ]
-  _utspoof='yes'
+    cd qBittorrent
+    # Spoof uTorrent [ change to 'no' to disable ]
+    _utspoof='yes'
 
-  if [ $_utspoof = 'yes' ]; then
-    msg2 "Applying fake-ut-peerid-and-ua.patch"
-    patch -p1 < ../fake-ut-peerid-and-ua.patch
-  fi
-
-  msg2 "Applying make-first-col-movable.patch"
-  patch -p1 < ../make-first-col-movable.patch
+    for p in ${source[@]}; do
+        case "$p" in
+            fake-ut-peerid-and-ua.patch )
+                if [ $_utspoof = 'yes' ]; then
+                    msg2 "Applying fake-ut-peerid-and-ua.patch"
+                    patch -p1 < ../fake-ut-peerid-and-ua.patch
+                fi
+            ;;
+            *.patch )
+                msg2 "Applying $p"
+                patch -p1 < ../$p
+            ;;
+            * )
+                # skip
+            ;;
+        esac
+    done
 }
 
 build() {
