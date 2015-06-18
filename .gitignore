@@ -8,5 +8,8 @@
 # Ignore log files
 *.log
 
+# Ignore locally used debug patches
+debug.patch
+
 # Ignore all subdirs within any package dir
 */*/*
