@@ -4,7 +4,7 @@ pkgname='vim-python3-noruby'
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor (with support for additional scripting languages)'
 provides=("vim=${pkgver}-${pkgrel}")
 _topver=7.4
-_patchlevel=729
+_patchlevel=738
 _tag=v${_topver/./-}-${_patchlevel}
 _versiondir="vim${_topver//./}"
 pkgver=${_topver}.${_patchlevel}
