@@ -1,18 +1,18 @@
 [submodule "alglib"]
 	path = alglib
-	url = ssh://aur@aur4.archlinux.org/alglib.git
+	url = ssh+git://aur@aur.archlinux.org/alglib.git
 [submodule "cutemarked-git"]
 	path = cutemarked-git
-	url = ssh://aur@aur4.archlinux.org/cutemarked-git.git
+	url = ssh+git://aur@aur.archlinux.org/cutemarked-git.git
 [submodule "libtsm-git"]
 	path = libtsm-git
-	url = ssh://aur@aur4.archlinux.org/libtsm-git.git
+	url = ssh+git://aur@aur.archlinux.org/libtsm-git.git
 [submodule "openann-git"]
 	path = openann-git
-	url = ssh://aur@aur4.archlinux.org/openann-git.git
+	url = ssh+git://aur@aur.archlinux.org/openann-git.git
 [submodule "libtsm-patched-git"]
 	path = libtsm-patched-git
-	url = ssh://aur@aur4.archlinux.org/libtsm-patched-git.git
+	url = ssh+git://aur@aur.archlinux.org/libtsm-patched-git.git
 [submodule "python-smartypants"]
 	path = python-smartypants
-	url = ssh://aur@aur4.archlinux.org/python-smartypants.git
+	url = ssh+git://aur@aur.archlinux.org/python-smartypants.git
