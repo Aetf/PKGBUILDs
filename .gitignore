@@ -1,6 +1,8 @@
 # Ignore downloaded source files
 *.tar.gz
 *.tar.xz
+*.xz
+*.sign
 
 # Ignore packages
 *.pkg.tar.xz
