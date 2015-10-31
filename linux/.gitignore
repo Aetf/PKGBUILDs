@@ -1,2 +1,3 @@
 # linux package specific ignores
 config-*
+linux.install.pkg
