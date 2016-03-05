@@ -86,10 +86,23 @@ prepare() {
   # load configuration
   # Configure the kernel. Replace the line below with one of your choice.
   #make menuconfig # CLI menu for configuration
-  make nconfig # new CLI menu for configuration
+  #make nconfig # new CLI menu for configuration
   #make xconfig # X-based configuration
   #make oldconfig # using old config from previous kernel version
   # ... or manually edit .config
+  # Enable builtin Intel i915 module
+  ./scripts/config --enable CONFIG_ACPI_BUTTON \
+                   --enable CONFIG_ACPI_VIDEO \
+                   --enable CONFIG_I2C_ALGOBIT \
+                   --enable CONFIG_AGP_INTEL \
+                   --enable CONFIG_INTEL_GTT \
+                   --enable CONFIG_DRM \
+                   --enable CONFIG_DRM_KMS_HELPER \
+                   --enable CONFIG_DRM_I915 \
+                   --enable CONFIG_FB_SYS_FILLRECT \
+                   --enable CONFIG_FB_SYS_COPYAREA \
+                   --enable CONFIG_FB_SYS_IMAGEBLIT \
+                   --enable CONFIG_FB_SYS_FOPS
 
   # rewrite configuration
   yes "" | make config >/dev/null
