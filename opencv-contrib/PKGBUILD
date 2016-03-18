@@ -7,14 +7,14 @@
 
 pkgname=('opencv-contrib' 'opencv-samples-contrib' 'opencv-java-contrib')
 pkgver=3.1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Open Source Computer Vision Library including additional 'contrib' modules"
 arch=('i686' 'x86_64')
 license=('BSD')
 url="http://opencv.org/"
 depends=('intel-tbb' 'openexr' 'xine-lib' 'libdc1394' 'gtkglext')
-makedepends=('cmake' 'python2-numpy' 'mesa' 'eigen2' 'apache-ant' 'java-environment')
-optdepends=('eigen2'
+makedepends=('cmake' 'python2-numpy' 'mesa' 'eigen' 'apache-ant' 'java-environment')
+optdepends=('eigen'
             'libcl: For coding with OpenCL'
             'python2-numpy: Python 2.x interface')
 
@@ -52,19 +52,25 @@ _cmakeopts=('-D WITH_OPENCL=ON'
 prepare() {
   cd "$srcdir/${pkgname%-contrib}-$pkgver"
   mkdir -p normal java
-  export JAVA_HOME=/usr/lib/jvm/default
 
   #Add contrib modules
-  _cmakeopts+=("-D OPENCV_EXTRA_MODULES_PATH=$srcdir/${pkgname%-contrib}_contrib-${pkgver}/modules $srcdir/${pkgname%-contrib}-$pkgver")
+  _cmakeopts+=("-D OPENCV_EXTRA_MODULES_PATH=$srcdir/${pkgname%-contrib}_contrib-${pkgver}/modules")
 
-  cd normal
+  cd "$srcdir/${pkgname%-contrib}-$pkgver/normal"
   cmake ${_cmakeopts[@]} \
         -D BUILD_EXAMPLES=ON \
         -D INSTALL_C_EXAMPLES=ON \
         -D INSTALL_PYTHON_EXAMPLES=ON \
         ..
 
-  cd ../java
+  msg2 "Exporting JAVA_HOME"
+  export JAVA_HOME=/usr/lib/jvm/default
+
+  msg2 "Enable dnn module java wrapper"
+  sed -i 's/ocv_add_module(dnn opencv_core opencv_imgproc WRAP python matlab)/ocv_add_module(dnn opencv_core opencv_imgproc WRAP python matlab java)/' "${srcdir}/${pkgname/-/_}-${pkgver}/modules/dnn/CMakeLists.txt"
+  sed -i 's/ocv_glob_module_sources(${PROTOBUF_SRCS} ${PROTOBUF_HDRS})/ocv_glob_module_sources(SOURCES ${PROTOBUF_SRCS} ${PROTOBUF_HDRS})/' "${srcdir}/${pkgname/-/_}-${pkgver}/modules/dnn/CMakeLists.txt"
+
+  cd "$srcdir/${pkgname%-contrib}-$pkgver/java"
   cmake ${_cmakeopts[@]} \
         -D BUILD_SHARED_LIBS=OFF \
         -D BUILD_EXAMPLES=OFF \
