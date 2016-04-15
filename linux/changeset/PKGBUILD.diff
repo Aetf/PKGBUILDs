@@ -1,23 +1,12 @@
---- PKGBUILD.orig	2016-03-10 18:06:45.217415344 -0500
-+++ PKGBUILD	2016-03-10 21:25:36.852382447 -0500
-@@ -20,6 +20,7 @@ source=("https://www.kernel.org/pub/linu
-         'config' 'config.x86_64'
+--- PKGBUILD.orig	2016-04-14 18:06:41.430191222 -0400
++++ PKGBUILD	2016-04-15 12:03:00.141278196 -0400
+@@ -21,4 +21,5 @@ source=("https://www.kernel.org/pub/linu
          # standard config files for mkinitcpio ramdisk
          'linux.preset'
 +        'hid-apple-swap-fn-ctrl.patch'
-         'change-default-console-loglevel.patch'
-         '0001-sdhci-revert.patch')
+         'change-default-console-loglevel.patch')
  
-@@ -30,6 +31,7 @@ sha256sums=('401d7c8fef594999a460d10c72c
-             'fbbae1d873900e84d1b7ef00593fbb94fc79f078a34b22ee824bab8b0a92be64'
-             '756a168bbc3bb582f0df45b977c32af53658f21d62fe15171c9ac85f52d8852a'
-             'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
-+            'e125693abf49cb210cca6592529fcd98666e166c2874e66ddb3c82188ad89d5b'
-             '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99'
-             '5313df7cb5b4d005422bd4cd0dae956b2dadba8f3db904275aaf99ac53894375')
- validpgpkeys=(
-@@ -58,6 +60,9 @@ prepare() {
-   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
+@@ -50,4 +51,7 @@ prepare() {
    patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
  
 +  # add more tuneable parameters for hid-apple module
@@ -25,9 +14,7 @@
 +
    if [ "${CARCH}" = "x86_64" ]; then
      cat "${srcdir}/config.x86_64" > ./.config
-   else
-@@ -85,6 +90,19 @@ prepare() {
-   #make xconfig # X-based configuration
+@@ -77,4 +81,17 @@ prepare() {
    #make oldconfig # using old config from previous kernel version
    # ... or manually edit .config
 +  # Enable builtin Intel i915 module
@@ -45,4 +32,3 @@
 +                   --enable CONFIG_FB_SYS_FOPS
  
    # rewrite configuration
-   yes "" | make config >/dev/null
