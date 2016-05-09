@@ -103,6 +103,9 @@ package_opencv-contrib() {
 
   cd "$pkgdir/usr/share"
 
+  # fix path in cmake module files
+  sed -r -i -e '/\/OpenCV\//s#/OpenCV/#/opencv/#g' "${pkgdir}/usr/share/opencv/OpenCVModules-release.cmake"
+
   # separate samples package; also be -R friendly
   if [[ -d OpenCV/samples ]]; then
     rm -rf "$srcdir/${pkgname%-contrib}-samples"
