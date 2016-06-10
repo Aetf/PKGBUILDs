@@ -3,3 +3,5 @@ config-*
 linux.install.pkg
 
 hid-apple-swap-fn-ctrl.patch
+
+*.orig
