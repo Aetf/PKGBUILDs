@@ -11,7 +11,7 @@ find  . -maxdepth 1 -depth ! -name 'changeset' -and ! -name '.gitignore' -delete
 mv $DIRPATH/linux/* $DIRPATH/..
 rmdir $DIRPATH/linux
 
-patch -p0 -i "$DIRPATH/PKGBUILD.diff"
+patch -p0 -b -z .orig -i "$DIRPATH/PKGBUILD.diff"
 for f in $DIRPATH/*.patch
 do
     name=$(basename "$f")
