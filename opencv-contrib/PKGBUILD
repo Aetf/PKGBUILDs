@@ -7,7 +7,7 @@
 
 pkgname=('opencv-contrib' 'opencv-samples-contrib' 'opencv-java-contrib')
 pkgver=3.1.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Open Source Computer Vision Library including additional 'contrib' modules"
 arch=('i686' 'x86_64')
 license=('BSD')
@@ -36,7 +36,9 @@ _cmakeopts=('-D WITH_OPENCL=ON'
             '-D CMAKE_INSTALL_PREFIX=/usr'
             '-D CMAKE_SKIP_RPATH=ON'
 # Settings for neural network module'
-            '-D BUILD_opencv_dnn=ON'
+            #'-D BUILD_opencv_dnn=ON'
+# Disable precompiled headers which won't compile on gcc 6
+            '-D ENABLE_PRECOMPILED_HEADERS=OFF'
             '-D BUILD_LIBPROTOBUF_FROM_SOURCES=ON')
 
 
@@ -65,10 +67,6 @@ prepare() {
 
   msg2 "Exporting JAVA_HOME"
   export JAVA_HOME=/usr/lib/jvm/default
-
-  msg2 "Enable dnn module java wrapper"
-  sed -i 's/ocv_add_module(dnn opencv_core opencv_imgproc WRAP python matlab)/ocv_add_module(dnn opencv_core opencv_imgproc WRAP python matlab java)/' "${srcdir}/${pkgname/-/_}-${pkgver}/modules/dnn/CMakeLists.txt"
-  sed -i 's/ocv_glob_module_sources(${PROTOBUF_SRCS} ${PROTOBUF_HDRS})/ocv_glob_module_sources(SOURCES ${PROTOBUF_SRCS} ${PROTOBUF_HDRS})/' "${srcdir}/${pkgname/-/_}-${pkgver}/modules/dnn/CMakeLists.txt"
 
   cd "$srcdir/${pkgname%-contrib}-$pkgver/java"
   cmake ${_cmakeopts[@]} \
@@ -104,20 +102,19 @@ package_opencv-contrib() {
   cd "$pkgdir/usr/share"
 
   # fix path in cmake module files
-  sed -r -i -e '/\/OpenCV\//s#/OpenCV/#/opencv/#g' "${pkgdir}/usr/share/opencv/OpenCVModules-release.cmake"
+  #sed -r -i -e '/\/OpenCV\//s#/OpenCV/#/opencv/#g' "${pkgdir}/usr/share/OpenCV/OpenCVModules-release.cmake"
 
   # separate samples package; also be -R friendly
   if [[ -d OpenCV/samples ]]; then
     rm -rf "$srcdir/${pkgname%-contrib}-samples"
     mv OpenCV/samples "$srcdir/${pkgname%-contrib}-samples"
     rm -rf ${pkgname%-contrib}
-    mv OpenCV ${pkgname%-contrib} # otherwise folder naming is inconsistent
   elif [[ ! -d OpenCV ]]; then
     warning "Directory naming issue; samples package may not be built!"
   fi
 
   # don't need the dynamic version of the java wrapper so
-  rm -rf "$pkgdir/usr/share/opencv/java"
+  rm -rf "$pkgdir/usr/share/OpenCV/java"
 }
 
 package_opencv-samples-contrib() {
@@ -127,10 +124,10 @@ package_opencv-samples-contrib() {
   conflicts=('opencv-samples')
   unset optdepends
 
-  mkdir -p "$pkgdir/usr/share/opencv"
-  cp -r "$srcdir/opencv-samples" "$pkgdir/usr/share/opencv/samples"
+  mkdir -p "$pkgdir/usr/share/OpenCV"
+  cp -r "$srcdir/opencv-samples" "$pkgdir/usr/share/OpenCV/samples"
   #Copy contrib samples
-  cp -rf "$srcdir/${pkgname%-samples-contrib}_contrib-${pkgver}/samples" "$pkgdir/usr/share/opencv/samples"
+  cp -rf "$srcdir/${pkgname%-samples-contrib}_contrib-${pkgver}/samples" "$pkgdir/usr/share/OpenCV/samples"
 
   # install license file
   install -Dm644 "$srcdir/opencv-$pkgver/LICENSE" \
@@ -152,16 +149,16 @@ package_opencv-java-contrib() {
   make DESTDIR="$srcdir/temp" install
 
   # Creating the package structure
-  mkdir -p "$pkgdir/usr/share/opencv/java"
+  mkdir -p "$pkgdir/usr/share/OpenCV/java"
   # Installing the built files
-  cp -r "$srcdir/temp/usr/share/OpenCV/java" "$pkgdir/usr/share/opencv"
+  cp -r "$srcdir/temp/usr/share/OpenCV/java" "$pkgdir/usr/share/OpenCV"
 
   # Create a symbolic link in /usr/share/java as Java apps written for Ubuntu may be looking there
   mkdir -p "$pkgdir/usr/share/java/"
   # Get the number in the Jar filename
   #_number=$(echo $pkgver | sed 's/\.//g')
   _number=$(echo $pkgver | sed 's/\.[0-9]$//' | sed 's/\.//g')
-  ln -s "/usr/share/opencv/java/opencv-$_number.jar" "$pkgdir/usr/share/java/opencv.jar"
+  ln -s "/usr/share/OpenCV/java/opencv-$_number.jar" "$pkgdir/usr/share/java/opencv.jar"
 
   # Removing the junk
   rm -r "$srcdir/temp"
