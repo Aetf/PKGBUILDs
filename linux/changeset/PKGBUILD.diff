@@ -1,13 +1,13 @@
---- PKGBUILD.orig	2016-09-01 03:05:04.869274631 +0800
-+++ PKGBUILD	2016-09-01 03:59:18.081646014 +0800
+--- PKGBUILD.orig	2016-09-15 21:15:19.830239984 -0400
++++ PKGBUILD	2016-09-15 22:12:12.228013089 -0400
 @@ -21,4 +21,5 @@ source=("https://www.kernel.org/pub/linu
          # standard config files for mkinitcpio ramdisk
          'linux.preset'
 +        'hid-apple-swap-fn-ctrl.patch'
-         'change-default-console-loglevel.patch')
- 
-@@ -30,7 +31,9 @@ sha256sums=('5190c3d1209aeda04168145bf50
-             '7d2bb66458b57d4df497ebb15a4ac130d08a0c084ae7845d0fe791a194efdb8e'
+         'change-default-console-loglevel.patch'
+         )
+@@ -31,7 +32,9 @@ sha256sums=('5190c3d1209aeda04168145bf50
+             '931724fe1a57134442fecc739ccb32984c1c6a0f0ae7e7311fd9536bb0e47ead'
              'f0d90e756f14533ee67afda280500511a62465b4f76adcc5effa95a40045179c'
 +            'e125693abf49cb210cca6592529fcd98666e166c2874e66ddb3c82188ad89d5b'
              '1256b241cd477b265a3c2d64bdc19ffe3c9bbcee82ea3994c590c2c76e767d99')
@@ -16,7 +16,7 @@
 +            'e125693abf49cb210cca6592529fcd98666e166c2874e66ddb3c82188ad89d5b'
                '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
               )
-@@ -52,4 +55,7 @@ prepare() {
+@@ -53,4 +56,7 @@ prepare() {
    patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
  
 +  # add more tuneable parameters for hid-apple module
@@ -24,7 +24,7 @@
 +
    if [ "${CARCH}" = "x86_64" ]; then
      cat "${srcdir}/config.x86_64" > ./.config
-@@ -79,4 +85,17 @@ prepare() {
+@@ -80,4 +86,17 @@ prepare() {
    #make oldconfig # using old config from previous kernel version
    # ... or manually edit .config
 +  # Enable builtin Intel i915 module
