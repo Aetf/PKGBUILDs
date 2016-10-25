@@ -25,3 +25,6 @@
 [submodule "kio-gdrive-git"]
 	path = kio-gdrive-git
 	url = ssh+git://aur@aur.archlinux.org/kio-gdrive-git.git
+[submodule "hid-apple-patched-git"]
+	path = hid-apple-patched-git
+	url = ssh+git://aur@aur.archlinux.org/hid-apple-patched-git.git
