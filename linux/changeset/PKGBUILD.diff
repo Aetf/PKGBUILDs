@@ -1,5 +1,5 @@
---- PKGBUILD.orig	2016-10-21 14:45:19.944146616 -0400
-+++ PKGBUILD	2016-10-21 15:18:16.468899192 -0400
+--- PKGBUILD.orig	2016-10-23 20:58:25.876210575 -0400
++++ PKGBUILD	2016-10-24 11:41:34.973285434 -0400
 @@ -21,4 +21,5 @@ source=("https://www.kernel.org/pub/linu
          # standard config files for mkinitcpio ramdisk
          'linux.preset'
@@ -24,21 +24,12 @@
 +
    if [ "${CARCH}" = "x86_64" ]; then
      cat "${srcdir}/config.x86_64" > ./.config
-@@ -80,4 +86,17 @@ prepare() {
+@@ -80,4 +86,8 @@ prepare() {
    #make oldconfig # using old config from previous kernel version
    # ... or manually edit .config
 +  # Enable builtin Intel i915 module
-+  ./scripts/config --enable CONFIG_ACPI_BUTTON \
-+                   --enable CONFIG_ACPI_VIDEO \
-+                   --enable CONFIG_I2C_ALGOBIT \
-+                   --enable CONFIG_AGP_INTEL \
-+                   --enable CONFIG_INTEL_GTT \
++  ./scripts/config \
 +                   --enable CONFIG_DRM \
-+                   --enable CONFIG_DRM_KMS_HELPER \
-+                   --enable CONFIG_DRM_I915 \
-+                   --enable CONFIG_FB_SYS_FILLRECT \
-+                   --enable CONFIG_FB_SYS_COPYAREA \
-+                   --enable CONFIG_FB_SYS_IMAGEBLIT \
-+                   --enable CONFIG_FB_SYS_FOPS
++                   --enable CONFIG_DRM_I915
  
    # rewrite configuration
