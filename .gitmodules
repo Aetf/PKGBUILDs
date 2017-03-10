@@ -28,3 +28,6 @@
 [submodule "hid-apple-patched-git"]
 	path = hid-apple-patched-git
 	url = ssh+git://aur@aur.archlinux.org/hid-apple-patched-git.git
+[submodule "libecap"]
+	path = libecap
+	url = ssh+git://aur@aur.archlinux.org/libecap.git
