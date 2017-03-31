@@ -34,3 +34,6 @@
 [submodule "globus-connect-personal"]
 	path = globus-connect-personal
 	url = ssh+git://aur@aur.archlinux.org/globus-connect-personal.git
+[submodule "python-globus-cli"]
+	path = python-globus-cli
+	url = ssh+git://aur@aur.archlinux.org/python-globus-cli.git
