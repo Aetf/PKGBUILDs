@@ -31,3 +31,6 @@
 [submodule "libecap"]
 	path = libecap
 	url = ssh+git://aur@aur.archlinux.org/libecap.git
+[submodule "globus-connect-personal"]
+	path = globus-connect-personal
+	url = ssh+git://aur@aur.archlinux.org/globus-connect-personal.git
