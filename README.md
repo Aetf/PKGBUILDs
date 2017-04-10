@@ -5,7 +5,7 @@ My customized Arch Linux PKGBUILD files
 
 ### Note about submodules
 
-Packages already hosted on AUR are included as submodules as this repository. Please run
+Packages already hosted on AUR are included as submodules in this repository. Please run
 ```
 git submodule update --init
 ```
