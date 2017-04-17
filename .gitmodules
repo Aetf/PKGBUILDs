@@ -40,3 +40,6 @@
 [submodule "python-globus-sdk"]
 	path = python-globus-sdk
 	url = https://aur.archlinux.org/python-globus-sdk.git
+[submodule "hid-apple-patched-git-dkms"]
+	path = hid-apple-patched-git-dkms
+	url = https://aur.archlinux.org/hid-apple-patched-git-dkms.git
