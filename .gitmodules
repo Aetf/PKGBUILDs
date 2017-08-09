@@ -16,9 +16,6 @@
 [submodule "python-smartypants"]
 	path = python-smartypants
 	url = https://aur.archlinux.org/python-smartypants.git
-[submodule "kdevplatform-git"]
-	path = kdevplatform-git
-	url = https://aur.archlinux.org/kdevplatform-git.git
 [submodule "kdevelop-git"]
 	path = kdevelop-git
 	url = https://aur.archlinux.org/kdevelop-git.git
