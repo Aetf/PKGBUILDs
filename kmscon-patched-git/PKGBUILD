@@ -3,10 +3,10 @@
 # Contributor: David Herrmann <dh.herrmann@googlemail.com>
 pkgname=kmscon-patched-git
 _gitname=kmscon
-pkgver=8.r20.g0b34527
-pkgrel=3
-pkgdesc='Terminal emulator based on Kernel Mode Setting (KMS), with patches to add underline support and fix margin background color'
-arch=(i686 x86_64)
+pkgver=0.0.0
+pkgrel=2
+pkgdesc='Terminal emulator based on Kernel Mode Setting (KMS), with patches to add underline support and fix margin background color (forked and patched version)'
+arch=(x86_64)
 url='http://www.freedesktop.org/wiki/Software/kmscon/'
 license=('MIT')
 depends=(systemd libdrm mesa libgl pango libxkbcommon xkeyboard-config libtsm-patched)
@@ -14,12 +14,8 @@ makedepends=(libxslt docbook-xsl linux-api-headers)
 options=(!libtool)
 provides=(kmscon)
 conflicts=(kmscon)
-source=("git+https://github.com/dvdhrm/kmscon.git"
-        add-underline.patch
-        fix-margin-color.patch)
-md5sums=('SKIP'
-         'SKIP'
-         'SKIP')
+source=("git+https://github.com/Aetf/kmscon.git")
+md5sums=('SKIP')
 
 pkgver() {
   cd $srcdir/$_gitname
@@ -28,11 +24,6 @@ pkgver() {
 
 prepare() {
   cd $srcdir/$_gitname
-
-  msg2 "Applying add-underline.patch"
-  patch -Np1 -i ../add-underline.patch
-  msg2 "Applying fix-margin-color.patch"
-  patch -Np1 -i ../fix-margin-color.patch
 
   ./autogen.sh --prefix=/usr \
                 --disable-wlterm
