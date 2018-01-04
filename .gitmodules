@@ -37,3 +37,6 @@
 [submodule "hid-apple-patched-git-dkms"]
 	path = hid-apple-patched-git-dkms
 	url = https://aur.archlinux.org/hid-apple-patched-git-dkms.git
+[submodule "kmscon-patched-git"]
+	path = kmscon-patched-git
+	url = https://aur.archlinux.org/kmscon-patched-git.git
