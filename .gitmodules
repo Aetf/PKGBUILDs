@@ -40,3 +40,6 @@
 [submodule "kmscon-patched-git"]
 	path = kmscon-patched-git
 	url = https://aur.archlinux.org/kmscon-patched-git.git
+[submodule "python-robobrowser"]
+	path = python-robobrowser
+	url = https://aur.archlinux.org/python-robobrowser.git
