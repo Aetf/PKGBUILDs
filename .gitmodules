@@ -43,3 +43,6 @@
 [submodule "python-robobrowser"]
 	path = python-robobrowser
 	url = https://aur.archlinux.org/python-robobrowser.git
+[submodule "python-pipsi"]
+	path = python-pipsi
+	url = https://aur.archlinux.org/python-pipsi.git
