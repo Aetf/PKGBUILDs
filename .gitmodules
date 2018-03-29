@@ -46,3 +46,6 @@
 [submodule "python-pipsi"]
 	path = python-pipsi
 	url = https://aur.archlinux.org/python-pipsi.git
+[submodule "kgraphviewer-git"]
+	path = kgraphviewer-git
+	url = https://aur.archlinux.org/kgraphviewer-git.git
