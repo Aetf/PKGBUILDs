@@ -49,3 +49,6 @@
 [submodule "kgraphviewer-git"]
 	path = kgraphviewer-git
 	url = https://aur.archlinux.org/kgraphviewer-git.git
+[submodule "plasma-potd-spotlight"]
+	path = plasma-potd-spotlight
+	url = https://aur.archlinux.org/plasma-potd-spotlight.git
