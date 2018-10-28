@@ -52,3 +52,6 @@
 [submodule "plasma-potd-spotlight"]
 	path = plasma-potd-spotlight
 	url = https://aur.archlinux.org/plasma-potd-spotlight.git
+[submodule "facetimehd-firmware"]
+	path = facetimehd-firmware
+	url = https://aur.archlinux.org/facetimehd-firmware.git
