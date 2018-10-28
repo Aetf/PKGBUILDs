@@ -55,3 +55,6 @@
 [submodule "facetimehd-firmware"]
 	path = facetimehd-firmware
 	url = https://aur.archlinux.org/facetimehd-firmware.git
+[submodule "bcwc-pcie-git"]
+	path = bcwc-pcie-git
+	url = https://aur.archlinux.org/bcwc-pcie-git.git
