@@ -1,0 +1,37 @@
+# Maintainer: Aetf <aetf at unlimitedcodeworks dot xyz>
+# Contributor: jtmb <packaging at technologicalwizardry dot com>
+pkgname=hath
+pkgver=1.4.2
+pkgrel=2
+pkgdesc="SETI@Home meets BitTorrent, for E-Hentai.org and E-Hentai Galleries."
+arch=(any)
+url="https://ehwiki.org/wiki/Hentai@Home"
+license=('GPL')
+depends=('java-runtime<10')
+makedepends=('java-environment<10')
+source=("https://repo.e-hentai.org/hath/HentaiAtHome_${pkgver}_src.zip"
+        "hath.sh"
+        "hath.sysuser"
+        "hath.config"
+        "hath.service")
+install=${pkgname}.install
+sha256sums=('5711c5dac5481ba75d24751720035b85a02edbce66f1d155824bf4060455e38a'
+            'd5a4db645cef3a1e58a860019fbb8453523f58b4e6e7fc20311f815836bf9ba7'
+            '5a8baa490f62be5fe51bd337fd479f22d5ff1381d9fa8c2bef5b08f3d2908155'
+            '937fa088b3bbaa0291fd9a96d4d04e71eeb86dfd451aad74e0ee9878063a9a2e'
+            '33aca0bd91bdd9789a3de2b64cf0f818e3559e0fa6a5bea16580f68221569cba')
+backup=('etc/hath/hath.config')
+
+build() {
+    cd "${srcdir}"
+    make all
+}
+
+package() {
+    install -Dm644 -- "HentaiAtHome.jar" "$pkgdir/usr/lib/$pkgname/$pkgname.jar"
+    install -Dm755 -- "$srcdir/$pkgname.sh" "$pkgdir/usr/bin/$pkgname"
+    install -Dm644 -- "hath.service" "${pkgdir}/usr/lib/systemd/system/hath.service"
+    install -Dm644 -- "hath.sysuser" "${pkgdir}/usr/lib/sysusers.d/hath.conf"
+    install -Dm644 -- LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    install -Dm644 -- hath.config "$pkgdir/etc/hath/hath.config"
+}

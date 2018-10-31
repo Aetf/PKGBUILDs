@@ -1,0 +1,15 @@
+[Unit]
+Description=Hentai@Home Service
+After=network-online.target
+
+[Service]
+User=hath
+ExecStart=/usr/bin/hath
+SuccessExitStatus=143
+TimeoutStopSec=30
+Restart=on-failure
+RestartSec=5
+
+
+[Install]
+WantedBy=multi-user.target
