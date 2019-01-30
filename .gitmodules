@@ -28,12 +28,6 @@
 [submodule "globus-connect-personal"]
 	path = globus-connect-personal
 	url = https://aur.archlinux.org/globus-connect-personal.git
-[submodule "python-globus-cli"]
-	path = python-globus-cli
-	url = https://aur.archlinux.org/python-globus-cli.git
-[submodule "python-globus-sdk"]
-	path = python-globus-sdk
-	url = https://aur.archlinux.org/python-globus-sdk.git
 [submodule "hid-apple-patched-git-dkms"]
 	path = hid-apple-patched-git-dkms
 	url = https://aur.archlinux.org/hid-apple-patched-git-dkms.git
