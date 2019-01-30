@@ -1,0 +1,8 @@
+*
+!.gitignore
+!.SRCINFO
+!PKGBUILD
+!syncthing-discosrv.service
+!syncthing-discosrv.sysusers
+!syncthing-discosrv.tmpfiles.conf
+
