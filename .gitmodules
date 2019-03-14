@@ -25,9 +25,6 @@
 [submodule "libecap"]
 	path = libecap
 	url = https://aur.archlinux.org/libecap.git
-[submodule "globus-connect-personal"]
-	path = globus-connect-personal
-	url = https://aur.archlinux.org/globus-connect-personal.git
 [submodule "hid-apple-patched-git-dkms"]
 	path = hid-apple-patched-git-dkms
 	url = https://aur.archlinux.org/hid-apple-patched-git-dkms.git
