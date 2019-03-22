@@ -13,9 +13,6 @@
 [submodule "libtsm-patched-git"]
 	path = libtsm-patched-git
 	url = https://aur.archlinux.org/libtsm-patched-git.git
-[submodule "python-smartypants"]
-	path = python-smartypants
-	url = https://aur.archlinux.org/python-smartypants.git
 [submodule "kdevelop-git"]
 	path = kdevelop-git
 	url = https://aur.archlinux.org/kdevelop-git.git
