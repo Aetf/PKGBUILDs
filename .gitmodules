@@ -1,6 +1,3 @@
-[submodule "alglib"]
-	path = alglib
-	url = https://aur.archlinux.org/alglib.git
 [submodule "cutemarked-git"]
 	path = cutemarked-git
 	url = https://aur.archlinux.org/cutemarked-git.git
