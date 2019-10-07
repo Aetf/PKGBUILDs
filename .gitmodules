@@ -43,3 +43,6 @@
 [submodule "bcwc-pcie-git"]
 	path = bcwc-pcie-git
 	url = https://aur.archlinux.org/bcwc-pcie-git.git
+[submodule "python-coolname"]
+	path = python-coolname
+	url = https://aur.archlinux.org/python-coolname.git
