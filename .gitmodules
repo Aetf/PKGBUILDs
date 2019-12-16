@@ -1,6 +1,3 @@
-[submodule "cutemarked-git"]
-	path = cutemarked-git
-	url = https://aur.archlinux.org/cutemarked-git.git
 [submodule "libtsm-git"]
 	path = libtsm-git
 	url = https://aur.archlinux.org/libtsm-git.git
