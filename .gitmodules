@@ -43,3 +43,6 @@
 [submodule "python-coolname"]
 	path = python-coolname
 	url = https://aur.archlinux.org/python-coolname.git
+[submodule "mkinitcpio-modconf-hook-git"]
+	path = mkinitcpio-modconf-hook-git
+	url = https://aur.archlinux.org/mkinitcpio-modconf-hook-git
