@@ -46,3 +46,6 @@
 [submodule "mkinitcpio-modconf-hook-git"]
 	path = mkinitcpio-modconf-hook-git
 	url = https://aur.archlinux.org/mkinitcpio-modconf-hook-git
+[submodule "wey-bin"]
+	path = wey-bin
+	url = https://aur.archlinux.org/wey-bin
