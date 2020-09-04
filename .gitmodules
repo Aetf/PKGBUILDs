@@ -1,33 +1,15 @@
 [submodule "libtsm-git"]
 	path = libtsm-git
 	url = https://aur.archlinux.org/libtsm-git.git
-[submodule "openann-git"]
-	path = openann-git
-	url = https://aur.archlinux.org/openann-git.git
 [submodule "libtsm-patched-git"]
 	path = libtsm-patched-git
 	url = https://aur.archlinux.org/libtsm-patched-git.git
-[submodule "kdevelop-git"]
-	path = kdevelop-git
-	url = https://aur.archlinux.org/kdevelop-git.git
-[submodule "kio-gdrive-git"]
-	path = kio-gdrive-git
-	url = https://aur.archlinux.org/kio-gdrive-git.git
-[submodule "libecap"]
-	path = libecap
-	url = https://aur.archlinux.org/libecap.git
 [submodule "hid-apple-patched-git-dkms"]
 	path = hid-apple-patched-git-dkms
 	url = https://aur.archlinux.org/hid-apple-patched-git-dkms.git
 [submodule "kmscon-patched-git"]
 	path = kmscon-patched-git
 	url = https://aur.archlinux.org/kmscon-patched-git.git
-[submodule "python-robobrowser"]
-	path = python-robobrowser
-	url = https://aur.archlinux.org/python-robobrowser.git
-[submodule "python-pipsi"]
-	path = python-pipsi
-	url = https://aur.archlinux.org/python-pipsi.git
 [submodule "kgraphviewer-git"]
 	path = kgraphviewer-git
 	url = https://aur.archlinux.org/kgraphviewer-git.git
@@ -40,12 +22,6 @@
 [submodule "bcwc-pcie-git"]
 	path = bcwc-pcie-git
 	url = https://aur.archlinux.org/bcwc-pcie-git.git
-[submodule "python-coolname"]
-	path = python-coolname
-	url = https://aur.archlinux.org/python-coolname.git
 [submodule "mkinitcpio-modconf-hook-git"]
 	path = mkinitcpio-modconf-hook-git
 	url = https://aur.archlinux.org/mkinitcpio-modconf-hook-git
-[submodule "wey-bin"]
-	path = wey-bin
-	url = https://aur.archlinux.org/wey-bin
