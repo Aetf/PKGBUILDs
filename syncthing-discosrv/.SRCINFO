@@ -1,6 +1,6 @@
 pkgbase = syncthing-discosrv
 	pkgdesc = Discover server for the syncthing P2P synchronization utility
-	pkgver = 1.8.0
+	pkgver = 1.9.0
 	pkgrel = 1
 	url = http://syncthing.net
 	arch = i686
@@ -13,7 +13,7 @@ pkgbase = syncthing-discosrv
 	makedepends = go
 	makedepends = inetutils
 	depends = glibc
-	source = https://github.com/syncthing/syncthing/releases/download/v1.8.0/syncthing-source-v1.8.0.tar.gz
+	source = https://github.com/syncthing/syncthing/releases/download/v1.9.0/syncthing-source-v1.9.0.tar.gz
 	source = syncthing-discosrv.sysusers
 	source = syncthing-discosrv.service
 	source = syncthing-discosrv.tmpfiles.conf

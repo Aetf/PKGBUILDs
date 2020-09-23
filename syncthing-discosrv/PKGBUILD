@@ -3,7 +3,7 @@
 _pkgbase=syncthing
 _cmdname=stdiscosrv
 pkgname=syncthing-discosrv
-pkgver=1.8.0
+pkgver=1.9.0
 pkgrel=1
 pkgdesc='Discover server for the syncthing P2P synchronization utility'
 url='http://syncthing.net'
@@ -19,7 +19,7 @@ source=(
   "syncthing-discosrv.tmpfiles.conf"
 )
 
-sha512sums=('282e6a700568946ed23d04cda41fa6a86d7c390c12c8abf99897f3818db9b4452baf5ab47d082bcf0b6a0329eb3d073dbc3abfe4a6493835cd201399307f605d'
+sha512sums=('2e38889cef6d0601f75050d415d727cd09e6bc54d36f4c51e10a24aceeb6ded46a8019714cd12afe1810bb9301b7af115d5fb4d593c952f7ef4e28c3f94c74d9'
             '7342861b3dfa0610add5dd47329ec85712c79d18eb718d9bc89596797cca68233a912eeda25ee0299b12656ede15913b0652e8c7872ade2db52e8606d042712c'
             '0735fc7ba8cc345da5a742ba942651f20340b448dffc04cb33d6b153a60761eaadf222399b64454cea364d14ae1e0e6e8ba2ae99eda2b221df4adaba48d190b6'
             'ec0ca45270d424526837e0e4baea160eb08e03ba8eeb8b679d3c6280b9b872a109061905cb8144f0ab60a9390cc556b19b0beec34cd93a3b1f4a35984ec434ef')
