@@ -4,9 +4,6 @@
 [submodule "libtsm-patched-git"]
 	path = libtsm-patched-git
 	url = https://aur.archlinux.org/libtsm-patched-git.git
-[submodule "hid-apple-patched-git-dkms"]
-	path = hid-apple-patched-git-dkms
-	url = https://aur.archlinux.org/hid-apple-patched-git-dkms.git
 [submodule "kmscon-patched-git"]
 	path = kmscon-patched-git
 	url = https://aur.archlinux.org/kmscon-patched-git.git
@@ -16,12 +13,6 @@
 [submodule "plasma-potd-spotlight"]
 	path = plasma-potd-spotlight
 	url = https://aur.archlinux.org/plasma-potd-spotlight.git
-[submodule "facetimehd-firmware"]
-	path = facetimehd-firmware
-	url = https://aur.archlinux.org/facetimehd-firmware.git
-[submodule "bcwc-pcie-git"]
-	path = bcwc-pcie-git
-	url = https://aur.archlinux.org/bcwc-pcie-git.git
 [submodule "mkinitcpio-modconf-hook-git"]
 	path = mkinitcpio-modconf-hook-git
 	url = https://aur.archlinux.org/mkinitcpio-modconf-hook-git
