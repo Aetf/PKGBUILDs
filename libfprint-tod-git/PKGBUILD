@@ -4,7 +4,7 @@
 
 pkgname=libfprint-tod-git
 _pkgdirname=libfprint
-pkgver=1.94.1+tod1.r5.ga36a4f2
+pkgver=1.94.3+tod1
 pkgrel=1
 pkgdesc="Library for fingerprint readers - TOD version"
 arch=(x86_64)
@@ -20,10 +20,8 @@ conflicts=(libfprint)
 groups=(fprint)
 source=(
     "git+https://gitlab.freedesktop.org/3v1n0/libfprint.git#branch=tod"
-    0001-tests-fix-build-for-meson-0.61.0.patch
 )
-sha256sums=('SKIP'
-            'a4541e1aedef11f135dc89dca14051a1094b897d7e1c1b94ce6173cc6d895369')
+sha256sums=('SKIP')
 
 pkgver() {
   cd $_pkgdirname
@@ -32,7 +30,6 @@ pkgver() {
 
 prepare() {
   cd $_pkgdirname
-  patch -p1 -i ../0001-tests-fix-build-for-meson-0.61.0.patch
 }
 
 build() {
