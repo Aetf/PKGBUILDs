@@ -6,7 +6,7 @@
 ## arg 1:  the new package version
 post_install() {
    echo "This is now a split Package:"
-   echo "joplin: CLI and Desktop"
+   echo "joplin: CLI"
    echo "joplin-desktop: for a Desktop version"
    echo "You may need to install them explicity on some AUR helpers"
 }
@@ -21,7 +21,7 @@ post_install() {
 ## arg 2:  the old package version
 post_upgrade() {
    echo "This is now a split Package:"
-   echo "joplin: CLI and Desktop"
+   echo "joplin: CLI"
    echo "joplin-desktop: for a Desktop version"
    echo "You may need to install them explicity on some AUR helpers"
 }

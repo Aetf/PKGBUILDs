@@ -9,6 +9,10 @@
 
 pkgbase="joplin"
 pkgname=('joplin')
+
+# building of desktop app doesn't working due to https://github.com/nodejs/node-gyp/issues/2534
+#pkgname=('joplin' 'joplin-desktop')
+
 pkgver=2.7.14
 groups=('joplin')
 pkgrel=1
@@ -111,7 +115,7 @@ package_joplin() {
 
 package_joplin-desktop() {
   pkgdesc="A note taking and to-do application with synchronization capabilities - Desktop"
-  depends=('electron' 'gtk3' 'libjpeg-turbo' 'libwebp' 'libxss' 'nodejs' 'nss')
+  depends=('electron' 'gtk3' 'libjpeg-turbo' 'libwebp' 'libxss' 'nodejs' 'nss' 'openssl')
   optdepends=('libappindicator-gtk3: for tray icon')
   conflicts=('joplin-desktop-electron')
 
