@@ -1,18 +1,18 @@
 PKGBUILDs
 =========
 
-My customized Arch Linux PKGBUILD files
+My customized Arch Linux PKGBUILD files, managed by [aurpublish](https://github.com/eli-schwartz/aurpublish).
 
-### Note about submodules
+### Common tasks
 
-Packages already hosted on AUR are included as submodules in this repository. Please run
-```
-git submodule update --init
-```
-inside the repo after cloning to correctly pull all submodules.
+* `aurpublish PACKAGE`
 
-By default the read-only https urls are used for those submodules. To enable push access,
-run `enable-push.sh`. Note you need first setup public key in your AUR account to be able
-to push. You will also need to contact me to add you as a co-maintainer for that package.
-Refer to [wiki](https://wiki.archlinux.org/index.php/Arch_User_Repository#Authentication)
-for more information.
+    > Push PACKAGE to the AUR. With "--speedup", merges the split history back in.
+
+* `aurpublish -p PACKAGE`
+
+    > Pull package from the AUR (if you adopted an existing package, or have a co-maintainer).
+
+* `aurpublish log PACKAGE`
+
+    > View the git log of a package subtree.
