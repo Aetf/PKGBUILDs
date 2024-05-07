@@ -16,3 +16,6 @@
 [submodule "mkinitcpio-modconf-hook-git"]
 	path = mkinitcpio-modconf-hook-git
 	url = https://aur.archlinux.org/mkinitcpio-modconf-hook-git
+[submodule "unftp"]
+	path = unftp
+	url = https://aur.archlinux.org/unftp.git
